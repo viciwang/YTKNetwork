@@ -168,6 +168,10 @@
     YTKRequestMethod method = [request requestMethod];
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
+    if ([request commonArgument]) {
+        id param = [(NSMutableDictionary *)[request commonArgument] mutableCopy];
+        [param addEntriesFromDictionary:request.requestArgument];
+    }
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
     AFHTTPRequestSerializer *requestSerializer = [self requestSerializerForRequest:request];
 

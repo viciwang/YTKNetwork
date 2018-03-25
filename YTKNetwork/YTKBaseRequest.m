@@ -157,6 +157,10 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
     return nil;
 }
 
+- (NSDictionary *)commonArgument {
+    return nil;
+}
+
 - (id)cacheFileNameFilterForRequestArgument:(id)argument {
     return argument;
 }
